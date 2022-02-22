@@ -9,6 +9,7 @@ public class PigController : MonoBehaviour
     [SerializeField] private GameObject[] waypoints;
     [SerializeField] private float speed = 2.0f;
     private int currentPoint = 0;
+    private bool isInPigSty = false;
 
     [Header("Truffle Movemement")]
     [SerializeField] private float moveToTruffleSpeed = 3.0f;
@@ -21,11 +22,18 @@ public class PigController : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField] private CircleCollider2D smellRadius;
     [SerializeField] private LayerMask truffleSmellLayerMask;
+    [SerializeField] private SpriteRenderer sprite;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sprite = GetComponent<SpriteRenderer>();
         PlayerEvents.instance.OnPlayerPlacedTruffle += TruffleAdded;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerEvents.instance.OnPlayerPlacedTruffle -= TruffleAdded;
     }
 
     private void TruffleAdded(Truffle truffle)
@@ -57,13 +65,18 @@ public class PigController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isMovingToTruffle)
+        if (!isMovingToTruffle && isInPigSty)
         {
-            Patrol();
+            return;
+        }
+
+        if (isMovingToTruffle)
+        {
+            MoveToTruffle();
         }
         else
         {
-            MoveToTruffle();
+            Patrol();
         }
     }
 
@@ -81,6 +94,14 @@ public class PigController : MonoBehaviour
     private void Patrol()
     {
         Transform goal = waypoints[currentPoint].transform;
+        if (goal.position.x > rb.position.x)
+        {
+            sprite.flipX = true;
+        }
+        else if (goal.position.x < rb.position.x)
+        {
+            sprite.flipX = false;
+        }
         rb.position = Vector2.MoveTowards(rb.position, goal.position, speed * Time.fixedDeltaTime);
         if (Vector2.Distance(transform.position, goal.position) < 0.6f)
         {
@@ -94,6 +115,16 @@ public class PigController : MonoBehaviour
         if (currentPoint == waypoints.Length)
         {
             currentPoint = 0;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision == null) return;
+
+        if (collision.tag == "Finish")
+        {
+            isInPigSty = true;
         }
     }
 
