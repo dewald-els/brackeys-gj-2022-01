@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f626c39808c25144db0af7dd962dc0ce
+guid: 1661cbd8adbf87f4ca9d5113aa01989c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Test_Terrain_0
+      name: decor_16x16_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 480
-        width: 32
-        height: 32
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +130,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c752eb5e75907054bb04ef2bc9308af0
-      internalID: 1403181960
+      spriteID: a0c7aff96eb4ddc48a347e57a7009657
+      internalID: 2063018998
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Test_Terrain_1
+      name: decor_16x16_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3da9a4833bdb05a4489ab1b3ea7c8320
+      internalID: 32930014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: decor_16x16_2
       rect:
         serializedVersion: 2
         x: 32
-        y: 480
-        width: 32
-        height: 32
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,20 +172,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87d45217d69ac8a4da49e4cd3c35b0af
-      internalID: -1081618449
+      spriteID: a0894d0cbb4fcf645a8341db88d47b3d
+      internalID: -758818488
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Test_Terrain_2
+      name: decor_16x16_3
       rect:
         serializedVersion: 2
-        x: 64
-        y: 480
-        width: 32
-        height: 32
+        x: 48
+        y: 64
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,20 +193,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df89842ebd9ea864ea0c5fcc3a194f02
-      internalID: -1143060729
+      spriteID: 7810a3ea9f9594848a694b7083b5220d
+      internalID: -896108206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Test_Terrain_3
+      name: decor_16x16_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 448
-        width: 32
-        height: 32
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,20 +214,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 800f2df4779ab9f41a9617905dc4ffca
-      internalID: -474263329
+      spriteID: 37e85ed088b3d594c87e820fce7d6848
+      internalID: -511718977
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Test_Terrain_4
+      name: decor_16x16_5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 968b08bfeee52f144bf3615cac1b6017
+      internalID: 237845253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: decor_16x16_6
       rect:
         serializedVersion: 2
         x: 32
-        y: 448
-        width: 32
-        height: 32
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,20 +256,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56b789fe55fecd84faee984dab6ea313
-      internalID: 1277037685
+      spriteID: f01afc5024fba6244b4d2a3432e63978
+      internalID: 1805005382
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Test_Terrain_5
+      name: decor_16x16_7
       rect:
         serializedVersion: 2
-        x: 64
-        y: 448
-        width: 32
-        height: 32
+        x: 48
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,92 +277,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5764c127c4b2dad4c9179ffa9f8eeba0
-      internalID: -2111333832
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Test_Terrain_6
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 448
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fe0983c3adc331d4dae5111c87a52217
-      internalID: -1036966640
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Test_Terrain_7
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 416
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8ba418827bd10fa4ca8a2830bdc186a4
-      internalID: -43665512
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Test_Terrain_8
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 416
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4948891acc5b9ec469586c814ebc7c51
-      internalID: 2085780930
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Test_Terrain_9
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 416
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 353e2a6b97a12b9479b4be00471bd5ed
-      internalID: -394755431
+      spriteID: 55499b866fbcb8c40945ec57f74e98ee
+      internalID: -1378997232
       vertices: []
       indices: 
       edges: []
@@ -336,16 +294,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Test_Terrain_9: -394755431
-      Test_Terrain_2: -1143060729
-      Test_Terrain_8: 2085780930
-      Test_Terrain_3: -474263329
-      Test_Terrain_1: -1081618449
-      Test_Terrain_6: -1036966640
-      Test_Terrain_5: -2111333832
-      Test_Terrain_4: 1277037685
-      Test_Terrain_7: -43665512
-      Test_Terrain_0: 1403181960
+      decor_16x16_5: 237845253
+      decor_16x16_1: 32930014
+      decor_16x16_2: -758818488
+      decor_16x16_3: -896108206
+      decor_16x16_4: -511718977
+      decor_16x16_6: 1805005382
+      decor_16x16_0: 2063018998
+      decor_16x16_7: -1378997232
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
