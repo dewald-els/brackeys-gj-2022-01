@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Truffle : MonoBehaviour
 {
+    [SerializeField] AudioSource sound;
     public bool WasEaten = false;
     public void Eat()
     {
@@ -11,5 +12,9 @@ public class Truffle : MonoBehaviour
         Destroy(gameObject);
     }
 
- 
+    public void Place()
+    {
+        sound.PlayOneShot(sound.clip);
+    }
+
 }

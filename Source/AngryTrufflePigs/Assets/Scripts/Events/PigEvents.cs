@@ -11,5 +11,14 @@ public class PigEvents : MonoBehaviour
         instance = this;
     }
 
+    public event Action OnPigInFence;
+    public void PigInFence()
+    {
+        if (OnPigInFence != null)
+        {
+            OnPigInFence(); 
+        }
+    }
+
 
 }

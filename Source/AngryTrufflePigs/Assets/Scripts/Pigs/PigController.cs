@@ -76,6 +76,7 @@ public class PigController : MonoBehaviour
         }
         FindNearbyTruffles();
         ToggleAnimation();
+        FlipSprite();
     }
 
     private void FixedUpdate()
@@ -130,25 +131,32 @@ public class PigController : MonoBehaviour
         }
     }
 
-    private void FlipSprite(Transform goal)
+    private void FlipSprite()
     {
-        if (goal.position.x > rb.position.x)
+        if (rb.velocity.sqrMagnitude > 0)
         {
             sprite.flipX = true;
         }
-        else if (goal.position.x < rb.position.x)
+        else if (rb.velocity.sqrMagnitude < 0)
         {
             sprite.flipX = false;
         }
+        /*
+        if (goal.position.x > rb.position.x)
+        {
+           
+        }
+        else if (goal.position.x < rb.position.x)
+        {
+           
+        }
+        */
     }
 
     private void Patrol()
     {
         state = PigState.Patrol;
         Transform goal = waypoints[currentPoint].transform;
-
-        FlipSprite(goal);
-
         rb.position = Vector2.MoveTowards(rb.position, goal.position, speed * Time.fixedDeltaTime);
 
         if (Vector2.Distance(transform.position, goal.position) < 0.6f)
@@ -178,6 +186,7 @@ public class PigController : MonoBehaviour
         if (collision.CompareTag("FenceSleepZone"))
         {
             state = PigState.SleepInFence;
+            PigEvents.instance.PigInFence();
         }
     }
 

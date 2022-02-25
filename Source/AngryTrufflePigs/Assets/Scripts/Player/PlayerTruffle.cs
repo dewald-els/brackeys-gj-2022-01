@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -31,6 +29,7 @@ public class PlayerTruffle : MonoBehaviour
             trufflesPlaced++;
             tmpTruffleCount.text = "Truffles: " + (maximunTruffles - trufflesPlaced).ToString();
             Truffle _truffle = Instantiate(truffle, transform.position, transform.rotation);
+            _truffle.Place();
             PlayerEvents.instance.PlayerPlacedTruffle(_truffle);
         }
     }
