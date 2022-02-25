@@ -4,20 +4,10 @@ using UnityEngine;
 
 public class Truffle : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    public bool WasEaten = false;
     public void Eat()
     {
+        WasEaten = true;
         Destroy(gameObject);
     }
 

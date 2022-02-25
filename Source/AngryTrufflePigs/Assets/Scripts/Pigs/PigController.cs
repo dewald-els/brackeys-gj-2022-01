@@ -4,10 +4,11 @@ using UnityEngine;
 
 enum PigState
 {
+    Idle,
     Patrol,
     ChaseTruffle,
     InFence,
-    SleepInFence
+    SleepInFence,
 }
 
 public class PigController : MonoBehaviour
@@ -28,21 +29,25 @@ public class PigController : MonoBehaviour
     [SerializeField] private CircleCollider2D smellRadius;
     [SerializeField] private LayerMask truffleSmellLayerMask;
     [SerializeField] private SpriteRenderer sprite;
-    [SerializeField] private BoxCollider2D fenceSleepZone;
+    [SerializeField] private Transform fenceSleepZone;
+    private Animator animator;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
-        fenceSleepZone = GameObject.FindGameObjectWithTag("FenceSleepZone").GetComponent<BoxCollider2D>();
+        fenceSleepZone = GameObject.FindGameObjectWithTag("FenceSleepZone").transform;
+        animator = GetComponent<Animator>();
     }
 
     private void FindNearbyTruffles()
     {
-        if (state == PigState.ChaseTruffle || state == PigState.InFence) return; // Already chasing a truffle.
-        
         // Get all the truffels the pig is overlapping with.
         Collider2D[] truffleSmellRadius = Physics2D.OverlapCircleAll(smellRadius.bounds.center, smellRadius.radius, truffleSmellLayerMask);
+
+        if (state == PigState.ChaseTruffle && truffleSmellRadius.Length > 0 ||
+            state == PigState.InFence) return; // Already chasing a truffle.
+
 
         if (truffleSmellRadius.Length > 0) // At least 1 truffle found
         {
@@ -51,16 +56,30 @@ public class PigController : MonoBehaviour
             // Find the parent truffle object on the smell radius object.
             truffle = truffleSmellRadius.First().transform.parent.GetComponent<Truffle>();
         }
+        else
+        {
+            state = PigState.Patrol;
+        }
+    }
+
+    private void ToggleAnimation()
+    {
+        animator.SetInteger("PigState", (int)state);
     }
 
     private void Update()
     {
+        if (state == PigState.SleepInFence)
+        {
+            animator.SetInteger("PigState", (int)PigState.SleepInFence);
+            return;
+        }
         FindNearbyTruffles();
+        ToggleAnimation();
     }
 
     private void FixedUpdate()
     {
-
         if (state == PigState.InFence)
         {
             MoveToSleepZone();
@@ -68,6 +87,7 @@ public class PigController : MonoBehaviour
 
         if (state == PigState.SleepInFence)
         {
+            animator.SetInteger("PigState", (int)PigState.SleepInFence);
             return;
         }
 
@@ -76,7 +96,7 @@ public class PigController : MonoBehaviour
         {
             MoveToTruffle();
         }
-        
+
         if (state == PigState.Patrol)
         {
             Patrol();
@@ -90,7 +110,13 @@ public class PigController : MonoBehaviour
 
     private void MoveToTruffle()
     {
-        state = PigState.ChaseTruffle;
+        if (truffle.WasEaten)
+        {
+            truffle = null;
+            state = PigState.Patrol;
+            return;
+        }
+
         rb.position = Vector2.MoveTowards(rb.position, truffle.transform.position, moveToTruffleSpeed * Time.fixedDeltaTime);
         if (Vector2.Distance(transform.position, truffle.transform.position) < 0.6f)
         {
@@ -104,10 +130,8 @@ public class PigController : MonoBehaviour
         }
     }
 
-    private void Patrol()
+    private void FlipSprite(Transform goal)
     {
-        state = PigState.Patrol;
-        Transform goal = waypoints[currentPoint].transform;
         if (goal.position.x > rb.position.x)
         {
             sprite.flipX = true;
@@ -116,6 +140,14 @@ public class PigController : MonoBehaviour
         {
             sprite.flipX = false;
         }
+    }
+
+    private void Patrol()
+    {
+        state = PigState.Patrol;
+        Transform goal = waypoints[currentPoint].transform;
+
+        FlipSprite(goal);
 
         rb.position = Vector2.MoveTowards(rb.position, goal.position, speed * Time.fixedDeltaTime);
 
@@ -143,7 +175,7 @@ public class PigController : MonoBehaviour
             state = PigState.InFence;
         }
 
-        if (collision.CompareTag("SleepInFence"))
+        if (collision.CompareTag("FenceSleepZone"))
         {
             state = PigState.SleepInFence;
         }
