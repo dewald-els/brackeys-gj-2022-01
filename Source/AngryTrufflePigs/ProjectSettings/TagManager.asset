@@ -8,6 +8,8 @@ TagManager:
   - Truffle
   - Pig
   - FenceSleepZone
+  - PauseScreen
+  - CompleteScreen
   layers:
   - Default
   - TransparentFX
