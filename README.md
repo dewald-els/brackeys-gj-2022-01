@@ -105,9 +105,10 @@ Tilemaps for game levels
 - Flowers
 - Buildings?
 
-
 ## Acknowledgements
 
 - Farmer Graphic: [MiniFolks Villagers](https://lyaseek.itch.io/minifvillagers)
 - Tile Graphics: [Mystic Woods](https://game-endeavor.itch.io/mystic-woods)
 - Pig Graphic: [Kings and Pigs](https://pixelfrog-assets.itch.io/kings-and-pigs)
+- Background Music: [Minimalistic Loops](https://gooseninja.itch.io/minimalistc-loops)
+- Sound Effects from : [50 SFX](https://fallenblood.itch.io/50-sfx)
